@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wordcloud</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        #line {
+            width: 800px;
+            height: 500px;
+            margin: 150px auto 0;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="line"></div>
+
+    <script src="./echarts.min.js"></script>
+    <script>
+        var myChart = echarts.init(document.getElementById('line'))
+        var option2 = {
+            title:{
+                text: "echarts-line"
+            },
+            xAxis:{
+                type: "category",
+                boundaryGap:false,   // 如果这个没有的话就会居中显示、不好看
+                data:["2017-01","2017-02","2017-03","2017-04","2017-05"]  //横轴的数据必须有，如果没有的话渲染不出来
+            },
+            yAxis:{
+                type: "value"
+            },
+            tooltip: {
+                trigger:"axis"
+            },
+            series: {
+                name:"test",
+                type: "line",
+                smooth: true,
+                data:[10,12,34,23,13]
+            }
+        }
+        myChart.setOption(option2, true)
+    </script>
+
+</body>
+
+</html>
